@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+.container {
+  display: grid;
+  /* grid-template-rows: repeat(23, 1fr);
+  grid-template-columns: repeat(23, 1fr); */
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+.container > div {
+  border: 1px solid green;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    display: grid;
+    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+  }
+}
