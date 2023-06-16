@@ -7,7 +7,22 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <div class="container"></div>
+    <div>
+      <div class="container"></div>
+      <div class="slider">
+        <input
+          type="range"
+          name="gridSize"
+          id="gridSize"
+          min="0"
+          max="100"
+          value="16"
+          oninput="getSliderValue(this.value)"
+        />
+        <br />
+        <label id="rangeValue" for="gridSize">16</label>
+      </div>
+    </div>
     <script src="scripts/script.js"></script>
   </body>
 </html>

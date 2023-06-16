@@ -13,14 +13,24 @@ function gridSize(size) {
   }
 }
 
-// squares.forEach((square) => {
-//   square.addEventListener("click", function (e) {
-//     console.log(e.target);
-//   });
-// });
+function getSliderValue(val = 16) {
+  let def = 16;
+  const slider = document.getElementById("gridSize");
+  document.getElementById("rangeValue").innerHTML = val + " x " + val;
+  console.log((slider.innerHTML = val));
+  gridSize(val);
+  slider.addEventListener("click", function () {});
+}
 
-document.addEventListener("mouseover", function (e) {
-  let target = e.target.closest(".square");
-  target.style.backgroundColor = "blue";
+container.addEventListener("mouseover", function (e) {
+  // let target = e.target.closest(".square");
+  let target = e.target.classList.contains("square");
+  if (target) {
+    e.target.style.backgroundColor = "blue";
+  }
+  // console.log(e.target);
 });
-gridSize(29);
+
+window.addEventListener("DOMContentLoaded", () => {
+  getSliderValue();
+});
