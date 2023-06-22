@@ -3,7 +3,7 @@ const squares = document.querySelectorAll(".square");
 const divs = document.createElement("div");
 divs.classList.add("square");
 
-function gridSize(size) {
+function createGrid(size = 16) {
   let grid = size * size;
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -12,14 +12,17 @@ function gridSize(size) {
     container.appendChild(divs.cloneNode(true));
   }
 }
+function clearGrid() {
+  container.innerHTML = "";
+}
 
 function getSliderValue(val = 16) {
-  let def = 16;
   const slider = document.getElementById("gridSize");
   document.getElementById("rangeValue").innerHTML = val + " x " + val;
   console.log((slider.innerHTML = val));
-  gridSize(val);
-  slider.addEventListener("click", function () {});
+  slider.addEventListener("change", function () {});
+  clearGrid();
+  createGrid(val);
 }
 
 container.addEventListener("mouseover", function (e) {
