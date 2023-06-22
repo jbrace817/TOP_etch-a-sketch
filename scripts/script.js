@@ -1,6 +1,11 @@
 const container = document.querySelector(".container");
 const squares = document.querySelectorAll(".square");
 const divs = document.createElement("div");
+const clear = document.getElementById("clear");
+const color = document.getElementById("color");
+const randomBtn = document.getElementById("random");
+let random = 0;
+
 divs.classList.add("square");
 
 function createGrid(size = 16) {
@@ -12,7 +17,7 @@ function createGrid(size = 16) {
     container.appendChild(divs.cloneNode(true));
   }
 }
-function clearGrid() {
+function refreshGrid() {
   container.innerHTML = "";
 }
 
@@ -21,18 +26,37 @@ function getSliderValue(val = 16) {
   document.getElementById("rangeValue").innerHTML = val + " x " + val;
   console.log((slider.innerHTML = val));
   slider.addEventListener("change", function () {});
-  clearGrid();
+  refreshGrid();
   createGrid(val);
 }
 
-container.addEventListener("mouseover", function (e) {
-  // let target = e.target.closest(".square");
-  let target = e.target.classList.contains("square");
-  if (target) {
-    e.target.style.backgroundColor = "blue";
+function clearGrid() {
+  let square = document.querySelectorAll(".square");
+  square.forEach((s) => (s.style.backgroundColor = ""));
+}
+
+function randomColor() {
+  let color = [];
+  for (let i = 0; i < 3; i++) {
+    color.push(Math.floor(Math.random() * 256));
   }
-  // console.log(e.target);
+  return "rgb(" + color.join(", ") + ")";
+}
+
+randomBtn.addEventListener("click", () => {
+  divs.classList.add("square");
 });
+
+container.addEventListener("mouseover", function (e) {
+  let colorPicker = color.value;
+  let target = e.target.classList.contains("square");
+
+  if (target) {
+    e.target.style.backgroundColor = colorPicker;
+  }
+});
+
+clear.addEventListener("click", clearGrid);
 
 window.addEventListener("DOMContentLoaded", () => {
   getSliderValue();
