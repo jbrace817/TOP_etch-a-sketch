@@ -66,13 +66,18 @@ container.addEventListener("mouseover", function (e) {
   let colorPicker = color.value;
   let target = e.target.classList.contains("square");
   let target2 = e.target.classList.contains("randomColor");
-  console.log(colorPicker);
   if (target) {
     e.target.style.backgroundColor = colorPicker;
   }
   if (target2) {
     e.target.style.backgroundColor = randomColor();
   }
+});
+
+color.addEventListener("change", () => {
+  /** @type {HTMLElement} */
+  let palette = document.querySelector(".material-icons");
+  palette.style.color = color.value;
 });
 
 clear.addEventListener("click", clearGrid);
