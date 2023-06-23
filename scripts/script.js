@@ -5,7 +5,6 @@ const clear = document.getElementById("clear");
 const color = document.getElementById("color");
 const randomBtn = document.getElementById("random");
 const eraserIcon = document.getElementById("eraser");
-let random = 0;
 
 divs.classList.add("square");
 
@@ -13,6 +12,9 @@ function createGrid(size = 16) {
   let grid = size * size;
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+  eraserIcon.style.color = "#d8d5d5";
+  randomBtn.innerHTML =
+    "<i class='fa fa-toggle-off' style='font-size:36px; color: #d8d5d5'></i>";
 
   for (let i = 0; i < grid; i++) {
     container.appendChild(divs.cloneNode(true));
@@ -71,8 +73,10 @@ eraser.addEventListener("click", () => {
   const erase = document.getElementsByClassName("eraser");
   squareDivs.forEach((squarediv) => squarediv.classList.toggle("eraser"));
   if (erase.length > 0) {
+    //ON
     eraserIcon.style.color = "#df93c5";
   } else {
+    //OFF
     eraserIcon.style.color = "#d8d5d5";
   }
 });
@@ -85,7 +89,7 @@ container.addEventListener("mouseover", function (e) {
   if (target) {
     e.target.style.backgroundColor = colorPicker;
   }
-  if (target2) {
+  if (target && target2) {
     e.target.style.backgroundColor = randomColor();
   }
   if (erase) {
