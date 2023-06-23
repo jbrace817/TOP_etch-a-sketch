@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="left">
       <div class="colorDiv">
         <label for="color">Color:</label>
         <div class="colorPicker">
-          <input type="color" id="color" />
+          <label>
+            <i
+              class="material-icons"
+              style="position: absolute; font-size: 36px"
+              >palette</i
+            >
+            <input type="color" id="color" data-jscolor="{}" />
+          </label>
         </div>
       </div>
       <div>
         <button id="random">
           Random <br />
-          Color
+          Color:
+          <br />
+          <br />
+          <div id="randomTxt">OFF</div>
         </button>
       </div>
       <div>
@@ -42,5 +56,6 @@
       </div>
     </div>
     <script src="scripts/script.js"></script>
+    <script src="scripts/jscolor.js"></script>
   </body>
 </html>

@@ -44,15 +44,34 @@ function randomColor() {
 }
 
 randomBtn.addEventListener("click", () => {
-  divs.classList.add("square");
+  const squareDivs = document.querySelectorAll(".square");
+  const random = document.getElementsByClassName("randomColor");
+  let btnStyle, btnLabel;
+  const randomTxt = document.getElementById("randomTxt");
+  squareDivs.forEach((squarediv) => squarediv.classList.toggle("randomColor"));
+
+  if (random.length > 0) {
+    btnStyle = "green";
+    btnLabel = "ON";
+    // console.log(random);
+  } else {
+    btnStyle = "";
+    btnLabel = "OFF";
+  }
+  randomBtn.style.background = btnStyle;
+  randomTxt.innerText = btnLabel;
 });
 
 container.addEventListener("mouseover", function (e) {
   let colorPicker = color.value;
   let target = e.target.classList.contains("square");
-
+  let target2 = e.target.classList.contains("randomColor");
+  console.log(colorPicker);
   if (target) {
     e.target.style.backgroundColor = colorPicker;
+  }
+  if (target2) {
+    e.target.style.backgroundColor = randomColor();
   }
 });
 
