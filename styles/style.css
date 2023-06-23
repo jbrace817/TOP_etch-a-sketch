@@ -16,13 +16,14 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
-  height: 100dvh;
+  background-color: rgb(53, 53, 53);
+  height: 50dvh;
   width: 100px;
-  /* border-radius: 10px; */
-  border: 2px solid #d8d5d5;
-  background: #fff;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  /* border: 2px solid #d8d5d5; */
+  /* background: #fff; */
+  /* box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0); */
 }
 
 /* .left::after {
@@ -44,7 +45,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* border: 1px solid red; */
+  /* border: 1px solid #2676ed; */
   flex-grow: 1;
 }
 .container {
@@ -91,6 +92,13 @@ input[type="color"] {
   width: 0px;
   padding: 0;
   margin: 0;
+}
+
+.toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 576px) {
