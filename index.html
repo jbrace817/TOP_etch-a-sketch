@@ -18,13 +18,13 @@
     <div class="left">
       <div class="colorDiv">
         <div class="colorPicker">
-          <label>
+          <label for="color" title="color picker">
             <i
               class="material-icons"
               style="position: absolute; font-size: 36px"
               >palette</i
             >
-            <input type="color" id="color" data-jscolor="{}" />
+            <input type="color" id="color" />
           </label>
         </div>
       </div>
@@ -32,12 +32,12 @@
         <label for="random" style="color: whitesmoke">Randomness:</label>
         <a id="random" href="#"><i class="fa fa-toggle-off"></i></a>
       </div>
-      <div>
+      <div title="eraser">
         <a id="eraser" href="#" style="color: #d8d5d7"
           ><i class="fa fa-eraser" style="font-size: 36px"></i
         ></a>
       </div>
-      <div>
+      <div title="reset">
         <a id="clear" href="#" style="color: #d8d5d7"
           ><i class="fa fa-refresh" style="font-size: 36px"></i
         ></a>
@@ -61,6 +61,5 @@
       </div>
     </div>
     <script src="scripts/script.js"></script>
-    <script src="scripts/jscolor.js"></script>
   </body>
 </html>
